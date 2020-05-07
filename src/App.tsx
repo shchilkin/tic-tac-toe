@@ -1,18 +1,22 @@
 import React from 'react';
 import './App.css';
 import Game from "./Components/Game";
+import GameState from './context/GameState';
+
 
 function App() {
   return (
-    <div style={{
-        backgroundColor:'#F5884B',
-        height: '100vh',
-        display:'flex',
-        justifyContent: "center",
-        alignItems:'center',
-    }} className="App">
-      <Game />
-    </div>
+      <GameState>
+        <div style={{
+          backgroundColor:'#F5884B',
+          height: '100vh',
+          display:'flex',
+          justifyContent: "center",
+          alignItems:'center',
+        }} className="App">
+          <Game />
+        </div>
+      </GameState>
   );
 }
 
