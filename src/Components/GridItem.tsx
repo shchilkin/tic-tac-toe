@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
-import Circle from "./Circle";
 import GameContext from "../context/GameContext";
+import Circle from "./Circle";
 import Cross from "./Cross";
 
 type GridItemProps = {
@@ -23,7 +23,7 @@ const GridItem = ({rowNumber, gridItemState} : GridItemProps) => {
     return <div style={{
         height:'70px',
         width: '70px',
-        border:'2px solid black',
+        border:'2px solid #D07440',
         display:'flex',
         alignItems:'center',
         justifyContent: "center",
