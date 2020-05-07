@@ -1,5 +1,7 @@
 import React,{useState} from "react";
+import GameState from "../context/GameState";
 import Circle from "./Circle";
+import Cross from "./Cross";
 
 type GridItemProps = {
     rowNumber: number;
@@ -8,6 +10,7 @@ type GridItemProps = {
 
 const GridItem = ({rowNumber} : GridItemProps) => {
     const [isClicked, setIsClicked] = useState(false)
+
 
     return <div style={{
         height:'70px',
@@ -22,7 +25,7 @@ const GridItem = ({rowNumber} : GridItemProps) => {
                     console.log(`Clicked ${rowNumber}`)
                 }}
     >
-        {isClicked ? <Circle />: rowNumber}
+        {isClicked ? <Circle /> : rowNumber}
     </div>
 }
 
