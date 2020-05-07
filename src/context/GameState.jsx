@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import GameReducer from "./GameReducer";
 import GameContext from "./GameContext";
 
-import {CHANGE_GRID_ITEM_STATE} from './Types'
+import {CHANGE_GRID_ITEM_STATE, RESTART_GAME} from './Types'
 
 
 const GameState = ({children}) => {
@@ -32,6 +32,12 @@ const GameState = ({children}) => {
         })
     }
 
+    const restartGame = () => {
+        dispatch({
+            type: RESTART_GAME
+        })
+    }
+
     return (
         <GameContext.Provider
             value={{
@@ -45,6 +51,7 @@ const GameState = ({children}) => {
                 field_8: state.field_8,
                 field_9: state.field_9,
                 playerTurn: state.playerTurn,
+                restartGame,
                 changeGridItemState
             }}
         >
