@@ -1,0 +1,1 @@
+export const CHANGE_GRID_ITEM_STATE: string = "CHANGE_GRID_ITEM_STATE"

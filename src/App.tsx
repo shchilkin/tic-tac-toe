@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Game from "./Components/Game";
-import GameState from './context/GameState';
+import GameState from './context/GameState.jsx';
 
 
 function App() {

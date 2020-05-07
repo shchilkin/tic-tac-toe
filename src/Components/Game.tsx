@@ -1,8 +1,17 @@
-import React,{Fragment} from "react";
+import React, {Fragment, useContext} from "react";
 import GridItem from "./GridItem";
+import GameContext from "../context/GameContext";
 
 
 const Game = () => {
+
+    const {
+        field_1, field_2, field_3,
+        field_4, field_5, field_6,
+        field_7, field_8, field_9 }: any  = useContext(GameContext);
+
+    console.log(useContext(GameContext))
+
     return (
         <div style={{
             padding:'1rem',
@@ -12,19 +21,19 @@ const Game = () => {
             alignItems:'center',
         }}>
             <div>
-                <GridItem rowNumber={1}/>
-                <GridItem rowNumber={2}/>
-                <GridItem rowNumber={3}/>
+                <GridItem gridItemState={field_1} rowNumber={1}/>
+                <GridItem gridItemState={field_4} rowNumber={4}/>
+                <GridItem gridItemState={field_7} rowNumber={7}/>
             </div>
             <div>
-                <GridItem rowNumber={4}/>
-                <GridItem rowNumber={5}/>
-                <GridItem rowNumber={6}/>
+                <GridItem gridItemState={field_2} rowNumber={2}/>
+                <GridItem gridItemState={field_5} rowNumber={5}/>
+                <GridItem gridItemState={field_8} rowNumber={8}/>
             </div>
             <div>
-                <GridItem rowNumber={7}/>
-                <GridItem rowNumber={8}/>
-                <GridItem rowNumber={9}/>
+                <GridItem gridItemState={field_3} rowNumber={3}/>
+                <GridItem gridItemState={field_6} rowNumber={6}/>
+                <GridItem gridItemState={field_9} rowNumber={9}/>
             </div>
         </div>
     )

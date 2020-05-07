@@ -1,16 +1,24 @@
-import React,{useState} from "react";
-import GameState from "../context/GameState";
+import React, {useContext} from "react";
 import Circle from "./Circle";
+import GameContext from "../context/GameContext";
 import Cross from "./Cross";
 
 type GridItemProps = {
     rowNumber: number;
+    gridItemState: boolean
 }
 
+const GridItem = ({rowNumber, gridItemState} : GridItemProps) => {
 
-const GridItem = ({rowNumber} : GridItemProps) => {
-    const [isClicked, setIsClicked] = useState(false)
+    const { changeGridItemState, playerTurn }: any = useContext(GameContext)
 
+    const playerSign = () => {
+        if(String(gridItemState) === 'circle') return <Circle/>
+        else if(String(gridItemState) === 'cross') return <Cross/>
+        else return null
+    }
+
+    console.log(`Type filed ${rowNumber}`,typeof gridItemState)
 
     return <div style={{
         height:'70px',
@@ -21,11 +29,14 @@ const GridItem = ({rowNumber} : GridItemProps) => {
         justifyContent: "center",
     }}
                 onClick={() => {
-                    setIsClicked(!isClicked)
-                    console.log(`Clicked ${rowNumber}`)
+                    // gridItemState is type boolean by default, however after change it will be type string
+                    // check is needed to prevent reassigning GridItem value once the value is assigned
+                    if (typeof gridItemState === "boolean") {
+                        changeGridItemState(rowNumber, playerTurn ? 'circle' : 'cross')
+                    }
                 }}
     >
-        {isClicked ? <Circle /> : rowNumber}
+        {gridItemState ? playerSign() : null}
     </div>
 }
 
