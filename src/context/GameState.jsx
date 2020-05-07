@@ -19,6 +19,7 @@ const GameState = ({children}) => {
         field_7: false,
         field_8: false,
         field_9: false,
+        turnCount:0,
         //Player turn true for first player and false for second player
         playerTurn: true,
     }
@@ -51,6 +52,7 @@ const GameState = ({children}) => {
                 field_8: state.field_8,
                 field_9: state.field_9,
                 playerTurn: state.playerTurn,
+                turnCount: state.turnCount,
                 restartGame,
                 changeGridItemState
             }}

@@ -8,54 +8,63 @@ export default (state : any, action: any) => {
                 case 1:
                     return {
                         ...state,
+                        turnCount: state.turnCount + 1,
                         field_1: action.payload.gridValue,
                         playerTurn: !state.playerTurn
                     }
                 case 2:
                     return {
                         ...state,
+                        turnCount: state.turnCount + 1,
                         field_2: action.payload.gridValue,
                         playerTurn: !state.playerTurn
                     }
                 case 3:
                     return {
                         ...state,
+                        turnCount: state.turnCount + 1,
                         field_3: action.payload.gridValue,
                         playerTurn: !state.playerTurn
                     }
                 case 4:
                     return {
                         ...state,
+                        turnCount: state.turnCount + 1,
                         field_4: action.payload.gridValue,
                         playerTurn: !state.playerTurn
                     }
                 case 5:
                     return {
                         ...state,
+                        turnCount: state.turnCount + 1,
                         field_5: action.payload.gridValue,
                         playerTurn: !state.playerTurn
                     }
                 case 6:
                     return {
                         ...state,
+                        turnCount: state.turnCount + 1,
                         field_6: action.payload.gridValue,
                         playerTurn: !state.playerTurn
                     }
                 case 7:
                     return {
                         ...state,
+                        turnCount: state.turnCount + 1,
                         field_7: action.payload.gridValue,
                         playerTurn: !state.playerTurn
                     }
                 case 8:
                     return {
                         ...state,
+                        turnCount: state.turnCount + 1,
                         field_8: action.payload.gridValue,
                         playerTurn: !state.playerTurn
                     }
                 case 9:
                     return {
                         ...state,
+                        turnCount: state.turnCount + 1,
                         field_9: action.payload.gridValue,
                         playerTurn: !state.playerTurn
                     }
@@ -66,6 +75,7 @@ export default (state : any, action: any) => {
             }
         case RESTART_GAME:
             return {
+                turnCount: 0,
                 field_1: false,
                 field_2: false,
                 field_3: false,

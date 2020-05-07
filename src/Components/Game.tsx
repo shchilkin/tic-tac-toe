@@ -9,16 +9,34 @@ const Game = () => {
         field_1, field_2, field_3,
         field_4, field_5, field_6,
         field_7, field_8, field_9,
-        playerTurn, restartGame
+        playerTurn, restartGame, turnCount
     }: any  = useContext(GameContext);
 
     console.log(useContext(GameContext))
 
+    const Announcer = (turnCount: number) => {
+        if (turnCount === 9) {
+            return (
+                <Fragment>
+                    <h5>Draw!</h5>
+                    <button onClick={restartGame} className={'button'}>Play again?</button>
+                </Fragment>
+            )
+        } else return null
+    }
+
     return (
         <div>
             <h1>Tic-Tac-Toe</h1>
-            <h4>Player {playerTurn ? '1' : '2'} turn </h4>
-            <button onClick={restartGame} className={'button'}>restart</button>
+            <div className={'row mb-3'}>
+                <div className={'col-md-12'}>
+                    <h5 style={{margin:0}}><span
+                        style={{verticalAlign:'bottom'}}
+                        className={`badge badge-${playerTurn ? 'primary': 'danger'}`}
+                    >Player {playerTurn ? '1' : '2'}</span> turn</h5>
+                </div>
+            </div>
+            {Announcer(turnCount)}
             <div style={{
                 padding:'1rem',
                 borderRadius: '12px',
@@ -27,7 +45,7 @@ const Game = () => {
                 justifyContent: "center",
                 alignItems:'center',
             }}>
-                <div>
+                    <div>
                     <GridItem gridItemState={field_1} rowNumber={1}/>
                     <GridItem gridItemState={field_4} rowNumber={4}/>
                     <GridItem gridItemState={field_7} rowNumber={7}/>
