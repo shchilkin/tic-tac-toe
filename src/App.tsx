@@ -2,20 +2,15 @@ import React from 'react';
 import './App.css';
 import Game from "./Components/Game";
 import GameState from './context/GameState.jsx';
+import Page from "./Components/Page";
 
 
 function App() {
   return (
       <GameState>
-        <div style={{
-          backgroundColor:'#C6D3D0',
-          height: '100vh',
-          display:'flex',
-          justifyContent: "center",
-          alignItems:'center',
-        }} className="App">
-          <Game />
-        </div>
+          <Page>
+              <Game />
+          </Page>
       </GameState>
   );
 }
