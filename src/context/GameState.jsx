@@ -10,7 +10,8 @@ const GameState = ({children}) => {
     const initialState = {
         //each filed represent GridItem's state
         //false - the field clear, 'cross' - cross (Player 1), 'circle' - circle (Player 2)
-        isGameOver: false,
+        win: false,
+        winner:'draw',
         field_1: false,
         field_2: false,
         field_3: false,
@@ -23,6 +24,7 @@ const GameState = ({children}) => {
         turnCount:0,
         //Player turn true for first player and false for second player
         playerTurn: true,
+        isGameOver: false,
     }
 
     const [state, dispatch] = useReducer(GameReducer, initialState);
@@ -43,6 +45,8 @@ const GameState = ({children}) => {
     return (
         <GameContext.Provider
             value={{
+                win: state.win,
+                winner:state.winner,
                 field_1: state.field_1,
                 field_2: state.field_2,
                 field_3: state.field_3,
