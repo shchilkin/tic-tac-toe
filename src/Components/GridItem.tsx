@@ -10,11 +10,15 @@ type GridItemProps = {
 
 const GridItem = ({rowNumber, gridItemState} : GridItemProps) => {
 
-    const { changeGridItemState, playerTurn }: any = useContext(GameContext)
+    const { changeGridItemState, playerTurn,playerColorScheme, colorSchemeHandler }: any = useContext(GameContext)
+    const firstColor: string = colorSchemeHandler(playerColorScheme).playerOneColor;
+    const secondColor: string = colorSchemeHandler(playerColorScheme).playerTwoColor;
+
+    console.log(secondColor)
 
     const playerSign = () => {
-        if(String(gridItemState) === 'circle') return <Circle/>
-        else if(String(gridItemState) === 'cross') return <Cross/>
+        if(String(gridItemState) === 'circle') return <Circle color={firstColor}/>
+        else if(String(gridItemState) === 'cross') return <Cross color={secondColor}/>
         else return null
     }
 

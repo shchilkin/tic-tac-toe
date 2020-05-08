@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import GameReducer from "./GameReducer";
 import GameContext from "./GameContext";
 
-import {CHANGE_GRID_ITEM_STATE, RESTART_GAME} from './Types'
+import {CHANGE_GRID_ITEM_STATE, RESTART_GAME,CHANGE_COLOR_SCHEME} from './Types'
 
 
 const GameState = ({children}) => {
@@ -26,6 +26,7 @@ const GameState = ({children}) => {
         //Player turn true for first player and false for second player
         playerTurn: true,
         isGameOver: false,
+        playerColorScheme: 1,
     }
 
     const [state, dispatch] = useReducer(GameReducer, initialState);
@@ -41,6 +42,28 @@ const GameState = ({children}) => {
         dispatch({
             type: RESTART_GAME
         })
+    }
+
+    const changeColorScheme = (colorSchemeNumber) => {
+        dispatch({
+            type: CHANGE_COLOR_SCHEME,
+            payload: colorSchemeNumber
+        })
+    }
+
+    const colorSchemeHandler = (playerColorScheme) => {
+        switch (playerColorScheme) {
+            case 1:
+                return {playerOneColor:'#FD6B15', playerTwoColor:'#158DFD'}
+            case 2:
+                return {playerOneColor:'#DB6570', playerTwoColor:'#71DB65'}
+            case 3:
+                return {playerOneColor:'#9dd1e9', playerTwoColor:'#e9b69d'}
+            case 4:
+                return {playerOneColor:'#87cd1e', playerTwoColor:'#CD1E87'}
+            case 5:
+                return {playerOneColor:'#E144F9', playerTwoColor:'#F9ed44'}
+        }
     }
 
     return (
@@ -60,8 +83,11 @@ const GameState = ({children}) => {
                 isGameOver: state.isGameOver,
                 playerTurn: state.playerTurn,
                 turnCount: state.turnCount,
+                playerColorScheme: state.playerColorScheme,
                 restartGame,
-                changeGridItemState
+                changeGridItemState,
+                changeColorScheme,
+                colorSchemeHandler
             }}
         >
             {children}

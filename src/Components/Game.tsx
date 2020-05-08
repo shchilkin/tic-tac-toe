@@ -10,14 +10,16 @@ const Game = () => {
         field_1, field_2, field_3,
         field_4, field_5, field_6,
         field_7, field_8, field_9,
-        playerTurn, restartGame, turnCount,isGameOver, win, winner
+        playerTurn, restartGame,
+        turnCount,isGameOver, win, winner,playerColorScheme,
+        colorSchemeHandler
     }: any  = useContext(GameContext);
 
     const ResultAnnouncer = (turnCount: number) => {
         const gameResultWrapper = (winner: number) => {
-            if (winner === 1) return 'Player One won!'
-            else if (winner === 2) return 'Player Two won!'
-            else return 'Draw!'
+            if (winner === 1) return '🎉 Player One won! 🎉'
+            else if (winner === 2) return '🥳 Player Two won! 🥳'
+            else return '😐 Draw!'
          }
         if (turnCount === 9 || win === true) {
             return (
@@ -32,13 +34,18 @@ const Game = () => {
     const ColorSchemes = () => {
         return(
             <Fragment>
-                <h6>Player colors</h6>
-                <div className={'mt-1'}>
-                    <PlayerColors playerOneColor='#FD6B15' playerTwoColor='#158DFD'/>
-                    <PlayerColors playerOneColor='#DB6570' playerTwoColor='#71db65'/>
-                    <PlayerColors playerOneColor='#9dd1e9' playerTwoColor='#e9b69d'/>
-                    <PlayerColors playerOneColor='#87cd1e' playerTwoColor='#CD1E87'/>
-                    <PlayerColors playerOneColor='#E144F9' playerTwoColor='#F9ed44'/>
+                <h6 className={'mt-3'}>Player colors</h6>
+                <div className={'mt-1'}
+                     style={{
+                         marginTop:'1rem',
+                         boxShadow:"#A8B3B1 5px 5px 15px, #D0DEDA -5px -5px 15px",
+                         borderRadius:'12px', paddingBottom:'.5rem',paddingTop:'.5rem',
+                     }}>
+                    <PlayerColors playerOneColor='#FD6B15' playerTwoColor='#158DFD' colorSchemeNumber={1}/>
+                    <PlayerColors playerOneColor='#DB6570' playerTwoColor='#71db65' colorSchemeNumber={2}/>
+                    <PlayerColors playerOneColor='#9dd1e9' playerTwoColor='#e9b69d' colorSchemeNumber={3}/>
+                    <PlayerColors playerOneColor='#87cd1e' playerTwoColor='#CD1E87' colorSchemeNumber={4}/>
+                    <PlayerColors playerOneColor='#E144F9' playerTwoColor='#F9ed44' colorSchemeNumber={5}/>
                 </div>
             </Fragment>
         )
@@ -54,7 +61,8 @@ const Game = () => {
                     <h5 style={{margin:0}}><span
                         style={{
                             verticalAlign:'bottom',
-                            backgroundColor: playerTurn ? '#FD6B15' : '#158DFD',
+                            backgroundColor: playerTurn ? colorSchemeHandler(playerColorScheme).playerOneColor
+                                : colorSchemeHandler(playerColorScheme).playerTwoColor,
                             color: playerTurn ? '#000' : '#FFF'
                         }}
                         className={'badge'}
