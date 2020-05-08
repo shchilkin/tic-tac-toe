@@ -45,7 +45,8 @@ const Game = () => {
             <div style={{
                 padding:'1rem',
                 borderRadius: '12px',
-                boxShadow:"#D07440 5px 5px 15px, #FF8F4F -5px -5px 15px",
+                border: '1px solid rgb(198, 211, 208)',
+                boxShadow:"#A8B3B1 5px 5px 15px, #D0DEDA -5px -5px 15px",
                 display:'flex',
                 justifyContent: "center",
                 alignItems:'center',

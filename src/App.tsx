@@ -8,7 +8,7 @@ function App() {
   return (
       <GameState>
         <div style={{
-          backgroundColor:'#F5884B',
+          backgroundColor:'#C6D3D0',
           height: '100vh',
           display:'flex',
           justifyContent: "center",

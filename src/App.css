@@ -41,48 +41,29 @@
   margin-bottom: 1rem;
   width: 100%;
   height: 30px;
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-  border-top-style: solid;
-  border-right-style: solid;
-  border-bottom-style: solid;
-  border-left-style: solid;
-  border-top-color: rgb(245, 136, 75);
-  border-right-color: rgb(245, 136, 75);
-  border-bottom-color: rgb(245, 136, 75);
-  border-left-color: rgb(245, 136, 75);
-  border-image-source: initial;
-  border-image-slice: initial;
-  border-image-repeat: initial;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C6D3D0;
   transition-duration: 0.5s, 0.5s;
   transition-property: background-color, color;
   font-weight: bold;
   border-radius: 3px;
   color: rgb(0, 0, 0);
-  background-image: initial;
-  background-position-x: initial;
-  background-position-y: initial;
-  background-size: initial;
-  background-attachment: initial;
-  background-origin: initial;
-  background-clip: initial;
-  background-color: rgb(245, 136, 75);
-  box-shadow: rgb(208, 116, 64) 5px 5px 30px 0, rgb(255, 143, 79) -5px -5px 30px 0;
+  background-color: #C6D3D0;
+  box-shadow: #A8B3B1  5px 5px 30px 0, #D0DEDA -5px -5px 30px 0;
 }
 
 .button:hover{
   transition-property: border-color, color;
   border-color: black;
   background: black;
-  color: rgb(245, 136, 75);
+  color: #C6D3D0
 }
 
 .button:active{
-  background: rgb(245, 136, 75);
-  border-color: rgb(245, 136, 75);
+  background: #C6D3D0;
+  border-color: #C6D3D0;
   color: black;
-  box-shadow: inset rgb(208, 116, 64) 5px 5px 30px 0, inset rgb(255, 143, 79) -5px -5px 30px 0;
+  box-shadow: inset #A8B3B1  5px 5px 30px 0, inset #D0DEDA -5px -5px 30px 0;
 
 }

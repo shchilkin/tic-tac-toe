@@ -23,7 +23,7 @@ const GridItem = ({rowNumber, gridItemState} : GridItemProps) => {
     return <div style={{
         height:'70px',
         width: '70px',
-        border:'2px solid #D07440',
+        border:'2px solid #A8B3B1',
         display:'flex',
         alignItems:'center',
         justifyContent: "center",
