@@ -57,6 +57,8 @@ export default (state : any, action: any) => {
         case RESTART_GAME:
             return {
                 ...state,
+                winner:0,
+                win: false,
                 turnCount: 0,
                 isGameOver: false,
                 field_1: false,
