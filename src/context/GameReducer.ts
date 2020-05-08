@@ -1,4 +1,4 @@
-import {CHANGE_GRID_ITEM_STATE, RESTART_GAME, CHANGE_COLOR_SCHEME} from './Types'
+import {CHANGE_GRID_ITEM_STATE, RESTART_GAME, CHANGE_COLOR_SCHEME, CHANGE_GAME_MODE} from './Types'
 
 function checkWinner(state:object) {
 
@@ -78,6 +78,11 @@ export default (state : any, action: any) => {
         case CHANGE_COLOR_SCHEME:
             return {...state,
                 playerColorScheme: action.payload
+            }
+        case CHANGE_GAME_MODE:
+            return {
+                ...state,
+                gameMode: !state.gameMode
             }
         default:
             return{

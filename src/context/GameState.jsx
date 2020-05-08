@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import GameReducer from "./GameReducer";
 import GameContext from "./GameContext";
 
-import {CHANGE_GRID_ITEM_STATE, RESTART_GAME,CHANGE_COLOR_SCHEME} from './Types'
+import {CHANGE_GRID_ITEM_STATE, RESTART_GAME,CHANGE_COLOR_SCHEME,CHANGE_GAME_MODE} from './Types'
 
 
 const GameState = ({children}) => {
@@ -23,6 +23,8 @@ const GameState = ({children}) => {
         field_8: false,
         field_9: false,
         turnCount:0,
+        // true for 2 players, false for 1 player
+        gameMode: true,
         //Player turn true for first player and false for second player
         playerTurn: true,
         isGameOver: false,
@@ -51,9 +53,16 @@ const GameState = ({children}) => {
         })
     }
 
+    const changeGameMode = () => {
+        dispatch({
+            type: CHANGE_GAME_MODE,
+        })
+    }
+
     const colorSchemeHandler = (playerColorScheme) => {
         switch (playerColorScheme) {
             case 1:
+            default:
                 return {playerOneColor:'#FD6B15', playerTwoColor:'#158DFD'}
             case 2:
                 return {playerOneColor:'#DB6570', playerTwoColor:'#71DB65'}
@@ -80,14 +89,16 @@ const GameState = ({children}) => {
                 field_7: state.field_7,
                 field_8: state.field_8,
                 field_9: state.field_9,
+                gameMode: state.gameMode,
                 isGameOver: state.isGameOver,
                 playerTurn: state.playerTurn,
                 turnCount: state.turnCount,
                 playerColorScheme: state.playerColorScheme,
                 restartGame,
+                changeGameMode,
                 changeGridItemState,
                 changeColorScheme,
-                colorSchemeHandler
+                colorSchemeHandler,
             }}
         >
             {children}
