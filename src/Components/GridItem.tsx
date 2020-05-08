@@ -5,10 +5,11 @@ import Cross from "./Cross";
 
 type GridItemProps = {
     rowNumber: number;
-    gridItemState: boolean
+    gridItemState: boolean;
+    borderColor: string;
 }
 
-const GridItem = ({rowNumber, gridItemState} : GridItemProps) => {
+const GridItem = ({rowNumber, gridItemState,borderColor} : GridItemProps) => {
 
     const { changeGridItemState, isGameOver,
         playerTurn,playerColorScheme, colorSchemeHandler }: any = useContext(GameContext)
@@ -28,7 +29,7 @@ const GridItem = ({rowNumber, gridItemState} : GridItemProps) => {
     return <div style={{
         height:'70px',
         width: '70px',
-        border:`2px solid #A8B3B1`,
+        border:`2px solid ${borderColor}`,
         display:'flex',
         alignItems:'center',
         justifyContent: "center",

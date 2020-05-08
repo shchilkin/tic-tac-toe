@@ -108,19 +108,19 @@ const Game = () => {
                 alignItems:'center',
             }}>
                 <div>
-                    <GridItem gridItemState={field_1} rowNumber={1}/>
-                    <GridItem gridItemState={field_4} rowNumber={4}/>
-                    <GridItem gridItemState={field_7} rowNumber={7}/>
+                    <GridItem borderColor={shadowColorHandler().darkShadow} gridItemState={field_1} rowNumber={1}/>
+                    <GridItem borderColor={shadowColorHandler().darkShadow} gridItemState={field_4} rowNumber={4}/>
+                    <GridItem borderColor={shadowColorHandler().darkShadow} gridItemState={field_7} rowNumber={7}/>
                 </div>
                 <div>
-                    <GridItem gridItemState={field_2} rowNumber={2}/>
-                    <GridItem gridItemState={field_5} rowNumber={5}/>
-                    <GridItem gridItemState={field_8} rowNumber={8}/>
+                    <GridItem borderColor={shadowColorHandler().darkShadow} gridItemState={field_2} rowNumber={2}/>
+                    <GridItem borderColor={shadowColorHandler().darkShadow} gridItemState={field_5} rowNumber={5}/>
+                    <GridItem borderColor={shadowColorHandler().darkShadow} gridItemState={field_8} rowNumber={8}/>
                 </div>
                 <div>
-                    <GridItem gridItemState={field_3} rowNumber={3}/>
-                    <GridItem gridItemState={field_6} rowNumber={6}/>
-                    <GridItem gridItemState={field_9} rowNumber={9}/>
+                    <GridItem borderColor={shadowColorHandler().darkShadow} gridItemState={field_3} rowNumber={3}/>
+                    <GridItem borderColor={shadowColorHandler().darkShadow} gridItemState={field_6} rowNumber={6}/>
+                    <GridItem borderColor={shadowColorHandler().darkShadow} gridItemState={field_9} rowNumber={9}/>
                 </div>
             </div>
             {(turnCount === 0) && ColorSchemes()}
