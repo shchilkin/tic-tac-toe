@@ -10,6 +10,7 @@ const GameState = ({children}) => {
     const initialState = {
         //each filed represent GridItem's state
         //false - the field clear, 'cross' - cross (Player 1), 'circle' - circle (Player 2)
+        isGameOver: false,
         field_1: false,
         field_2: false,
         field_3: false,
@@ -51,6 +52,7 @@ const GameState = ({children}) => {
                 field_7: state.field_7,
                 field_8: state.field_8,
                 field_9: state.field_9,
+                isGameOver: state.isGameOver,
                 playerTurn: state.playerTurn,
                 turnCount: state.turnCount,
                 restartGame,

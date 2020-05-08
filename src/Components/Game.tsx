@@ -9,12 +9,12 @@ const Game = () => {
         field_1, field_2, field_3,
         field_4, field_5, field_6,
         field_7, field_8, field_9,
-        playerTurn, restartGame, turnCount
+        playerTurn, restartGame, turnCount,isGameOver
     }: any  = useContext(GameContext);
 
     console.log(useContext(GameContext))
 
-    const Announcer = (turnCount: number) => {
+    const ResultAnnouncer = (turnCount: number) => {
         if (turnCount === 9) {
             return (
                 <Fragment>
@@ -36,7 +36,8 @@ const Game = () => {
                     >Player {playerTurn ? '1' : '2'}</span> turn</h5>
                 </div>
             </div>
-            {Announcer(turnCount)}
+            {ResultAnnouncer(turnCount)}
+            <h6>{String(isGameOver)}</h6>
             <div style={{
                 padding:'1rem',
                 borderRadius: '12px',
