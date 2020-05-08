@@ -63,15 +63,50 @@ const GameState = ({children}) => {
         switch (playerColorScheme) {
             case 1:
             default:
-                return {playerOneColor:'#FD6B15', playerTwoColor:'#158DFD'}
+                return {
+                    playerOneColor:'#FD6B15',
+                    playerOneDarkShadow:'#D75B12',
+                    playerOneLightShadow:'#FF7016',
+                    playerTwoColor:'#158DFD',
+                    playerTwoDarkShadow:'#1278D7',
+                    playerTwoLightShadow:'#1694FF',
+                }
             case 2:
-                return {playerOneColor:'#DB6570', playerTwoColor:'#71DB65'}
+                return {
+                    playerOneColor:'#DB6570',
+                    playerOneDarkShadow:'#BA565F',
+                    playerOneLightShadow:'#E66A76',
+                    playerTwoColor:'#71DB65',
+                    playerTwoDarkShadow:'#60BA56',
+                    playerTwoLightShadow:'#77E66A',
+                }
             case 3:
-                return {playerOneColor:'#9dd1e9', playerTwoColor:'#e9b69d'}
+                return {
+                    playerOneColor:'#9dd1e9',
+                    playerOneDarkShadow:'#85B2C6',
+                    playerOneLightShadow:'#A5DBF5',
+                    playerTwoColor:'#e9b69d',
+                    playerTwoDarkShadow:'#C69B85',
+                    playerTwoLightShadow:'#F5BFA5',
+                }
             case 4:
-                return {playerOneColor:'#87cd1e', playerTwoColor:'#CD1E87'}
+                return {
+                    playerOneColor:'#87cd1e',
+                    playerOneDarkShadow:'#73AE1A',
+                    playerOneLightShadow:'#8ED720',
+                    playerTwoColor:'#CD1E87',
+                    playerTwoDarkShadow:'#AE1A73',
+                    playerTwoLightShadow:'#D7208E',
+                }
             case 5:
-                return {playerOneColor:'#E144F9', playerTwoColor:'#F9ed44'}
+                return {
+                    playerOneColor:'#E144F9',
+                    playerOneDarkShadow:'#BF3AD4',
+                    playerOneLightShadow:'#EC47FF',
+                    playerTwoColor:'#F9ed44',
+                    playerTwoDarkShadow:'#D4C93A',
+                    playerTwoLightShadow:'#FFF947',
+                }
         }
     }
 

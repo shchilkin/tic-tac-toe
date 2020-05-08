@@ -38,7 +38,7 @@ const Game = () => {
                 <div className={'mt-1'}
                      style={{
                          marginTop:'1rem',
-                         boxShadow:"#A8B3B1 5px 5px 15px, #D0DEDA -5px -5px 15px",
+                         boxShadow:`#A8B3B1 5px 5px 15px, #D0DEDA -5px -5px 15px`,
                          borderRadius:'12px', paddingBottom:'.5rem',paddingTop:'.5rem',
                      }}>
                     <PlayerColors playerOneColor='#FD6B15' playerTwoColor='#158DFD' colorSchemeNumber={1}/>
@@ -51,7 +51,35 @@ const Game = () => {
         )
     }
 
-    console.log('is game over', isGameOver)
+
+    const shadowColorHandler = () => {
+
+        let shadowColors = {color:'#C6D3D0', darkShadow:'#A8B3B1', lightShadow:'#D0DEDA'};
+
+        if (winner === 1){
+            return {
+                color:colorSchemeHandler(playerColorScheme).playerOneColor,
+                darkShadow:colorSchemeHandler(playerColorScheme).playerOneDarkShadow,
+                lightShadow:colorSchemeHandler(playerColorScheme).playerOneLightShadow,
+            }
+        }
+
+        if (winner === 2){
+            return {
+                color: colorSchemeHandler(playerColorScheme).playerTwoColor,
+                darkShadow:colorSchemeHandler(playerColorScheme).playerTwoDarkShadow,
+                lightShadow:colorSchemeHandler(playerColorScheme).playerTwoLightShadow,
+            }
+        }
+
+        if (isGameOver){
+            return {color:'#9EA9A6',darkShadow:'#86908D', lightShadow:'#A6B1AE'}
+        }
+
+        return shadowColors
+    }
+
+
     return (
         <div>
             <h1>Tic-Tac-Toe</h1>
@@ -62,9 +90,7 @@ const Game = () => {
                         style={{
                             verticalAlign:'bottom',
                             backgroundColor: playerTurn ? colorSchemeHandler(playerColorScheme).playerOneColor
-                                : colorSchemeHandler(playerColorScheme).playerTwoColor,
-                            color: playerTurn ? '#000' : '#FFF'
-                        }}
+                                : colorSchemeHandler(playerColorScheme).playerTwoColor,}}
                         className={'badge'}
                     >Player {playerTurn ? '1' : '2'}</span> turn
                     </h5>}
@@ -74,8 +100,9 @@ const Game = () => {
             <div style={{
                 padding:'1rem',
                 borderRadius: '12px',
-                border: '1px solid rgb(198, 211, 208)',
-                boxShadow:"#A8B3B1 5px 5px 15px, #D0DEDA -5px -5px 15px",
+                border: `1px solid ${shadowColorHandler().color}`,
+                boxShadow:`${shadowColorHandler().darkShadow} 5px 5px 15px, 
+                ${shadowColorHandler().lightShadow} -5px -5px 15px`,
                 display:'flex',
                 justifyContent: "center",
                 alignItems:'center',
