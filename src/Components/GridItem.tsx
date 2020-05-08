@@ -10,7 +10,8 @@ type GridItemProps = {
 
 const GridItem = ({rowNumber, gridItemState} : GridItemProps) => {
 
-    const { changeGridItemState, playerTurn,playerColorScheme, colorSchemeHandler }: any = useContext(GameContext)
+    const { changeGridItemState, isGameOver,
+        playerTurn,playerColorScheme, colorSchemeHandler }: any = useContext(GameContext)
     const firstColor: string = colorSchemeHandler(playerColorScheme).playerOneColor;
     const secondColor: string = colorSchemeHandler(playerColorScheme).playerTwoColor;
 
@@ -33,11 +34,14 @@ const GridItem = ({rowNumber, gridItemState} : GridItemProps) => {
         justifyContent: "center",
     }}
                 onClick={() => {
-                    // gridItemState is type boolean by default, however after change it will be type string
-                    // check is needed to prevent reassigning GridItem value once the value is assigned
-                    if (typeof gridItemState === "boolean") {
-                        changeGridItemState(rowNumber, playerTurn ? 'circle' : 'cross')
+                    if(!isGameOver){
+                        // gridItemState is type boolean by default, however after change it will be type string
+                        // check is needed to prevent reassigning GridItem value once the value is assigned
+                        if (typeof gridItemState === "boolean") {
+                            changeGridItemState(rowNumber, playerTurn ? 'circle' : 'cross')
+                        }
                     }
+
                 }}
     >
         {gridItemState ? playerSign() : null}
