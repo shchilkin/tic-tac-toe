@@ -18,7 +18,7 @@ const GridItem = ({rowNumber, gridItemState} : GridItemProps) => {
         else return null
     }
 
-    console.log(`Type filed ${rowNumber}`,typeof gridItemState)
+    // console.log(`Type filed ${rowNumber}`,typeof gridItemState)
 
     return <div style={{
         height:'70px',

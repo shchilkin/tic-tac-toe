@@ -9,16 +9,19 @@ const Game = () => {
         field_1, field_2, field_3,
         field_4, field_5, field_6,
         field_7, field_8, field_9,
-        playerTurn, restartGame, turnCount,isGameOver
+        playerTurn, restartGame, turnCount,isGameOver, win, winner
     }: any  = useContext(GameContext);
 
-    console.log(useContext(GameContext))
-
     const ResultAnnouncer = (turnCount: number) => {
-        if (turnCount === 9) {
+        const gameResultWrapper = (winner: number) => {
+            if (winner === 1) return 'Player One won!'
+            else if (winner === 2) return 'Player Two won!'
+            else return 'Draw!'
+         }
+        if (turnCount === 9 || win === true) {
             return (
                 <Fragment>
-                    <h5>Draw!</h5>
+                    <h5  className={'mb-3'} >{gameResultWrapper(winner)}</h5>
                     <button onClick={restartGame} className={'button'}>Play again?</button>
                 </Fragment>
             )
@@ -30,14 +33,15 @@ const Game = () => {
             <h1>Tic-Tac-Toe</h1>
             <div className={'row mb-3'}>
                 <div className={'col-md-12'}>
+                    {!win &&
                     <h5 style={{margin:0}}><span
                         style={{verticalAlign:'bottom'}}
                         className={`badge badge-${playerTurn ? 'primary': 'danger'}`}
-                    >Player {playerTurn ? '1' : '2'}</span> turn</h5>
+                    >Player {playerTurn ? '1' : '2'}</span> turn
+                    </h5>}
                 </div>
             </div>
             {ResultAnnouncer(turnCount)}
-            <h6>{String(isGameOver)}</h6>
             <div style={{
                 padding:'1rem',
                 borderRadius: '12px',
