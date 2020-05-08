@@ -1,6 +1,7 @@
 import React, {Fragment, useContext} from "react";
 import GridItem from "./GridItem";
 import GameContext from "../context/GameContext";
+import PlayerColors from "./PlayerColors";
 
 
 const Game = () => {
@@ -26,6 +27,21 @@ const Game = () => {
                 </Fragment>
             )
         } else return null
+    }
+
+    const ColorSchemes = () => {
+        return(
+            <Fragment>
+                <h6>Player colors</h6>
+                <div className={'mt-1'}>
+                    <PlayerColors playerOneColor='#FD6B15' playerTwoColor='#158DFD'/>
+                    <PlayerColors playerOneColor='#DB6570' playerTwoColor='#71db65'/>
+                    <PlayerColors playerOneColor='#9dd1e9' playerTwoColor='#e9b69d'/>
+                    <PlayerColors playerOneColor='#87cd1e' playerTwoColor='#CD1E87'/>
+                    <PlayerColors playerOneColor='#E144F9' playerTwoColor='#F9ed44'/>
+                </div>
+            </Fragment>
+        )
     }
 
     console.log('is game over', isGameOver)
@@ -56,7 +72,7 @@ const Game = () => {
                 justifyContent: "center",
                 alignItems:'center',
             }}>
-                    <div>
+                <div>
                     <GridItem gridItemState={field_1} rowNumber={1}/>
                     <GridItem gridItemState={field_4} rowNumber={4}/>
                     <GridItem gridItemState={field_7} rowNumber={7}/>
@@ -72,6 +88,7 @@ const Game = () => {
                     <GridItem gridItemState={field_9} rowNumber={9}/>
                 </div>
             </div>
+            {(turnCount === 0) && ColorSchemes()}
         </div>
     )
 }
