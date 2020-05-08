@@ -53,6 +53,9 @@ export default (state : any, action: any) => {
             console.log('check winner',checkWinner(updatedState))
             updatedState.win = checkWinner(updatedState).win
             updatedState.winner = checkWinner(updatedState).winner
+            if( state.turnCount + 1 === 9 ||  checkWinner(updatedState).win){
+                updatedState.isGameOver = true
+            }
             return updatedState
         case RESTART_GAME:
             return {

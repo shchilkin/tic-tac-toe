@@ -28,15 +28,20 @@ const Game = () => {
         } else return null
     }
 
+    console.log('is game over', isGameOver)
     return (
         <div>
             <h1>Tic-Tac-Toe</h1>
             <div className={'row mb-3'}>
                 <div className={'col-md-12'}>
-                    {!win &&
+                    {(!isGameOver) &&
                     <h5 style={{margin:0}}><span
-                        style={{verticalAlign:'bottom'}}
-                        className={`badge badge-${playerTurn ? 'primary': 'danger'}`}
+                        style={{
+                            verticalAlign:'bottom',
+                            backgroundColor: playerTurn ? '#FD6B15' : '#158DFD',
+                            color: playerTurn ? '#000' : '#FFF'
+                        }}
+                        className={'badge'}
                     >Player {playerTurn ? '1' : '2'}</span> turn
                     </h5>}
                 </div>
