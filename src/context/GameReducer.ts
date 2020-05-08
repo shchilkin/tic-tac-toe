@@ -29,15 +29,15 @@ function checkWinner(state:object) {
         (score(state)[0] + score(state)[4] + score(state)[8]),
         (score(state)[2] + score(state)[4] + score(state)[6])
     ]
-    let gameState = {win: false, winner: "draw"};
+    let gameState = {win: false, winner: 0};
 
     for (let element of winCases) {
         if (element === 3) {
-            gameState = {win: true, winner: 'Player_1'}
+            gameState = {win: true, winner: 1}
             break;
         }
         else if (element === -3){
-            gameState = {win: true, winner: 'Player_2'}
+            gameState = {win: true, winner: 2}
             break;
         }
     }
@@ -49,8 +49,10 @@ export default (state : any, action: any) => {
     switch (action.type){
         case CHANGE_GRID_ITEM_STATE:
             state[`field_${action.payload.gridID}`] = action.payload.gridValue
-            const updatedState: object =  {...state, turnCount: state.turnCount + 1, playerTurn: !state.playerTurn}
-            checkWinner(updatedState)
+            const updatedState: any =  {...state, turnCount: state.turnCount + 1, playerTurn: !state.playerTurn}
+            console.log('check winner',checkWinner(updatedState))
+            updatedState.win = checkWinner(updatedState).win
+            updatedState.winner = checkWinner(updatedState).winner
             return updatedState
         case RESTART_GAME:
             return {

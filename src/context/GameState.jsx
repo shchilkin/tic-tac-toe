@@ -11,7 +11,8 @@ const GameState = ({children}) => {
         //each filed represent GridItem's state
         //false - the field clear, 'cross' - cross (Player 1), 'circle' - circle (Player 2)
         win: false,
-        winner:'draw',
+        // winner state 0 - draw, 1 - first player, 2 - second player
+        winner:0,
         field_1: false,
         field_2: false,
         field_3: false,
