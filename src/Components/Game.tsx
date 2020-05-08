@@ -25,7 +25,11 @@ const Game = () => {
             return (
                 <Fragment>
                     <h5  className={'mb-3'} >{gameResultWrapper(winner)}</h5>
-                    <button onClick={restartGame} className={'button'}>Play again?</button>
+                    <button
+                        style={{
+
+                        }}
+                        onClick={restartGame} className={'button'}>Play again?</button>
                 </Fragment>
             )
         } else return null

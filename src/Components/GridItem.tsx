@@ -9,12 +9,17 @@ type GridItemProps = {
     borderColor: string;
 }
 
-const GridItem = ({rowNumber, gridItemState,borderColor} : GridItemProps) => {
+const GridItem = ({rowNumber, gridItemState, borderColor} : GridItemProps) => {
 
     const { changeGridItemState, isGameOver,
         playerTurn,playerColorScheme, colorSchemeHandler }: any = useContext(GameContext)
-    const firstColor: string = colorSchemeHandler(playerColorScheme).playerOneColor;
-    const secondColor: string = colorSchemeHandler(playerColorScheme).playerTwoColor;
+    const firstColor: string = (isGameOver ?
+            colorSchemeHandler(playerColorScheme).playerOneDarkShadow :
+        colorSchemeHandler(playerColorScheme).playerOneColor);
+    const secondColor: string = (isGameOver ?
+        colorSchemeHandler(playerColorScheme).playerTwoDarkShadow :
+            colorSchemeHandler(playerColorScheme).playerTwoColor
+        );
 
     console.log(secondColor)
 
