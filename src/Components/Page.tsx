@@ -32,7 +32,9 @@ const Page = ({children}: PageProps) => {
     console.log('Handler',colorSchemeHandler(playerColorScheme))
 
     return (
-        <div style={{
+        <div
+            className={'App'}
+            style={{
                 textAlign: 'center',
                 backgroundColor: backgroundColorHandler(),
                 height: '100vh',
