@@ -2,6 +2,7 @@ import React, {Fragment, useContext} from "react";
 import GridItem from "./GridItem";
 import GameContext from "../context/GameContext";
 import PlayerColors from "./PlayerColors";
+import Button from "./Button";
 
 
 const Game = () => {
@@ -14,26 +15,6 @@ const Game = () => {
         turnCount,isGameOver, win, winner,playerColorScheme,
         colorSchemeHandler
     }: any  = useContext(GameContext);
-
-    const ResultAnnouncer = (turnCount: number) => {
-        const gameResultWrapper = (winner: number) => {
-            if (winner === 1) return '🎉 Player One won! 🎉'
-            else if (winner === 2) return '🥳 Player Two won! 🥳'
-            else return '😐 Draw!'
-         }
-        if (turnCount === 9 || win === true) {
-            return (
-                <Fragment>
-                    <h5  className={'mb-3'} >{gameResultWrapper(winner)}</h5>
-                    <button
-                        style={{
-
-                        }}
-                        onClick={restartGame} className={'button'}>Play again?</button>
-                </Fragment>
-            )
-        } else return null
-    }
 
     const ColorSchemes = () => {
         return(
@@ -82,7 +63,26 @@ const Game = () => {
 
         return shadowColors
     }
-
+    const ResultAnnouncer = (turnCount: number) => {
+        const gameResultWrapper = (winner: number) => {
+            if (winner === 1) return '🎉 Player One won! 🎉'
+            else if (winner === 2) return '🥳 Player Two won! 🥳'
+            else return '😐 Draw!'
+        }
+        if (turnCount === 9 || win === true) {
+            return (
+                <Fragment>
+                    <h5  className={'mb-3'} >{gameResultWrapper(winner)}</h5>
+                    <Button
+                        color={'#000'}
+                        backgroundColor={shadowColorHandler().color}
+                        darkShadow={shadowColorHandler().darkShadow}
+                        lightShadow={shadowColorHandler().lightShadow}
+                        onClick={restartGame}>Play again?</Button>
+                </Fragment>
+            )
+        } else return null
+    }
 
     return (
         <div>
