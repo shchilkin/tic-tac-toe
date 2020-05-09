@@ -7,9 +7,28 @@ type GridItemProps = {
     rowNumber: number;
     gridItemState: boolean;
     borderColor: string;
+    borderTopWidth?:number,
+    borderBottomWidth?:number,
+    borderLeftWidth?:number,
+    borderRightWidth?:number,
+    borderTopLeftRadius?: number,
+    borderTopRightRadius?: number,
+    borderBottomLeftRadius?: number,
+    borderBottomRightRadius?: number,
 }
 
-const GridItem = ({rowNumber, gridItemState, borderColor} : GridItemProps) => {
+const GridItem = ({
+                      rowNumber,
+                      gridItemState,
+                      borderColor,
+                      borderTopWidth = 0,
+                      borderBottomWidth = 0,
+                      borderLeftWidth = 0,
+                      borderRightWidth = 0,
+                      borderTopLeftRadius= 0,
+                      borderTopRightRadius = 0,
+                      borderBottomLeftRadius =0,
+                      borderBottomRightRadius =0} : GridItemProps) => {
 
     const { changeGridItemState, isGameOver,
         playerTurn,playerColorScheme, colorSchemeHandler }: any = useContext(GameContext)
@@ -34,7 +53,16 @@ const GridItem = ({rowNumber, gridItemState, borderColor} : GridItemProps) => {
     return <div style={{
         height:'70px',
         width: '70px',
-        border:`2px solid ${borderColor}`,
+        borderStyle:'solid',
+        borderColor: borderColor,
+        borderTopWidth:borderTopWidth,
+        borderBottomWidth:borderBottomWidth,
+        borderLeftWidth:borderLeftWidth,
+        borderRightWidth:borderRightWidth,
+        borderTopLeftRadius:borderTopLeftRadius,
+        borderTopRightRadius:borderTopRightRadius,
+        borderBottomLeftRadius:borderBottomLeftRadius,
+        borderBottomRightRadius:borderBottomRightRadius,
         display:'flex',
         alignItems:'center',
         justifyContent: "center",
